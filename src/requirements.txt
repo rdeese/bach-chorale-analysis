@@ -1,1 +1,8 @@
+wheel
 music21
+numpy
+scipy
+scikit-learn
+pillow
+cairocffi
+python-igraph
