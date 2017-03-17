@@ -2,7 +2,6 @@ from scipy.spatial.distance import cdist
 from numpy import array, zeros
 from sklearn.cluster import KMeans as skMeans
 from sklearn.metrics import silhouette_score as silScore
-from Pycluster import kmedoids
 import cPickle
 import time
 
@@ -30,7 +29,6 @@ def getKMeans(numStates, observations):
 	kmeansModel = skMeans(n_clusters=numStates, n_init=10).fit(distMatrix)
 	code = kmeansModel.labels_
 	nfound = 1
-#	code, silhouetteScore, nfound = kmedoids(distMatrix, nclusters=numStates, npass=300)
 	silhouetteScore = silScore(distMatrix, code, metric='euclidean')
 	print "Clustered in", time.time() - start_time, "seconds, found best solution", \
 	nfound, "times, with score of", silhouetteScore

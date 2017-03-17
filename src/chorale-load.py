@@ -17,7 +17,7 @@ def parseCorpus():
 		print 'Loading', chorale.corpusFilepath
 		print 'Getting slices...'
 		# Convert the chorale into a series of quarter-note chords.
-		slices = theoryAnalysis.theoryAnalyzer.getVerticalSlices(chorale, classFilterList=['Note'])
+		slices = alpha.theoryAnalysis.theoryAnalyzer.getVerticalities(chorale, classFilterList=['Note'])
 		sliceStream = stream.Stream()
 		for s in slices:
 			sliceStream.append(chord.Chord(map(lambda X: X[0], s.contentDict.values())))

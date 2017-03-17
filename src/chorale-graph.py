@@ -72,17 +72,13 @@ def drawGraph(numStates, rawCode, decodeSequences, out, label):
 
 	g = igraph.Graph(edges, directed=True, edge_attrs=edge_attrs, vertex_attrs=vertex_attrs);
 	l = g.layout('kamada_kawai')
-	print 'hi3'
 	gPlot = igraph.plot(g,label+'-model-'+str(numStates)+'.pdf', labellayout=l, margin=(40), bbox=(300,300),
 		vertex_color='white')
-	print 'hi4'
 
 def main():
 	label = time.strftime("%m%d%H%M%S")
 	codeFile = open('code.txt', 'r')
-	print 'hi'
 	codeFileList = cPickle.load(codeFile)
-	print 'hi2'
 	codeFile.close()
 	os.mkdir(label)
 	os.chdir(label)
